@@ -94,10 +94,8 @@ function Countdown({ curso }) {
         // finaliza o contador
         clearInterval(interval);
 
-        console.log(curso.link);
-
         // redireciona para o link
-        // window.location.href = curso.link;
+        window.location.href = curso.link;
       }
     }
 
