@@ -43,10 +43,10 @@ cursos[5] = {
 
 const dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 
-function Row({ curso, index, active }) {
+function Row({ curso, index }) {
 
   return (
-    <tr className={index === active ? "table-primary" : ""}>
+    <tr>
       <th scope="row">
         <span>{dias[index]}</span>
       </th>
@@ -59,7 +59,7 @@ function Row({ curso, index, active }) {
 
 function NotFound() {
   return (
-    <div className="alert alert-danger mt-2">
+    <div className="alert alert-danger mt-2 mb-0">
       <strong>Link não disponível!</strong>
     </div>
   )
@@ -67,7 +67,7 @@ function NotFound() {
 
 function Atrasado() {
   return (
-    <div className="alert alert-warning mt-2">
+    <div className="alert alert-warning mt-2 mb-0 py-2">
       <strong>A aula já começou!</strong>
     </div>
   )
@@ -95,7 +95,7 @@ function Countdown({ curso }) {
         clearInterval(interval);
 
         // redireciona para o link
-        window.location.href = curso.link;
+        // window.location.href = curso.link;
       }
     }
 
@@ -126,34 +126,44 @@ function App() {
   const curso = cursos[today];
 
   return (
-    <Container>
-      <Card className="mt-3">
-        <Card.Body>
-          <Card.Title>
-            <strong>{curso.nome}</strong>
-          </Card.Title>
-          <Card.Text>
-            Prof: {curso.prof}
-          </Card.Text>
+    <>
+      <main>
+        <Container>
+          <Card className="mt-3 border-0 shadow">
+            <Card.Header className="bg-info text-light py-3">
+              <Card.Title>
+                <strong className="d-inline-block text-truncate w-100">{curso.nome}</strong>
+              </Card.Title>
+              <Card.Subtitle>
+                <span className="d-inline-block text-truncate w-100">Prof: {curso.prof}</span>
+              </Card.Subtitle>
+            </Card.Header>
+            <Card.Body>
+              <span className="text-center">
+                {curso.link ? <Countdown curso={curso}></Countdown> : <NotFound />}
+              </span>
+            </Card.Body>
+          </Card>
+          <Table striped responsive className="mt-3" variant="dark">
+            <thead>
+              <tr>
+                <th scope="col">Dia</th>
+                <th scope="col">Curso</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cursos.map((curso, index) => <Row curso={curso} index={index} key={index} />)}
+            </tbody>
+          </Table>
+        </Container>
+      </main>
 
-          <span className="text-center">
-            {curso.link ? <Countdown curso={curso}></Countdown> : <NotFound />}
-          </span>
-
-        </Card.Body>
-      </Card>
-      <Table striped responsive bordered className="mt-3" variant="light">
-        <thead>
-          <tr>
-            <th scope="col">Dia</th>
-            <th scope="col">Curso</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cursos.map((curso, index) => <Row curso={curso} index={index} active={today} key={index} />)}
-        </tbody>
-      </Table>
-    </Container>
+      <footer className="footer mt-auto py-3 bg-light text-center">
+        <Container>
+          <span>Criado por <a href="https://www.instagram.com/ronaldo.bguimaraes/" target="_blank" rel="noreferrer">@ronaldo.bguimaraes</a></span>
+        </Container>
+      </footer>
+    </>
   );
 }
 
