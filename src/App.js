@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useEffect, useState } from 'react';
 
-import { Card, Container, Table } from 'react-bootstrap';
+import { Alert, Card, Container, Table } from 'react-bootstrap';
 
 import createClock from "./components/Clock";
 
@@ -43,7 +43,7 @@ cursos[5] = {
 
 const dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
 
-function Row({ curso, index }) {
+function MakeRow({ curso, index }) {
 
   return (
     <tr>
@@ -59,17 +59,17 @@ function Row({ curso, index }) {
 
 function NotFound() {
   return (
-    <div className="alert alert-danger mt-2 mb-0">
+    <Alert variant="danger" className="mt-2 mb-0 py-2">
       <strong>Link não disponível!</strong>
-    </div>
+    </Alert>
   )
 }
 
 function Atrasado() {
   return (
-    <div className="alert alert-warning mt-2 mb-0 py-2">
+    <Alert variant="warning" className="mt-2 mb-0 py-2">
       <strong>A aula já começou!</strong>
-    </div>
+    </Alert>
   )
 }
 
@@ -95,7 +95,7 @@ function Countdown({ curso }) {
         clearInterval(interval);
 
         // redireciona para o link
-        // window.location.href = curso.link;
+        window.location.href = curso.link;
       }
     }
 
@@ -144,7 +144,7 @@ function App() {
               </span>
             </Card.Body>
           </Card>
-          <Table striped responsive className="mt-3" variant="dark">
+          <Table striped responsive className="mt-3 h-100" variant="dark">
             <thead>
               <tr>
                 <th scope="col">Dia</th>
@@ -152,7 +152,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {cursos.map((curso, index) => <Row curso={curso} index={index} key={index} />)}
+              {cursos.map((curso, index) => <MakeRow curso={curso} index={index} key={index} />)}
             </tbody>
           </Table>
         </Container>
