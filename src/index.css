@@ -1,8 +1,18 @@
 body {
   margin: 0;
   font-family: arial;
+
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
 }
 
 code {
   font-family: consolas;
+}
+
+a {
+  text-decoration: none;
+}
+
+.countdown {
+  display: block;
 }
