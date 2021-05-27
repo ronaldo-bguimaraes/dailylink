@@ -1,8 +1,8 @@
+import "./App.css";
+
 import { useEffect, useState } from 'react';
 
 import { Card, Container, Table } from 'react-bootstrap';
-
-import "./App.css";
 
 import createClock from "./components/Clock";
 
