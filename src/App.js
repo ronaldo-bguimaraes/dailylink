@@ -24,7 +24,7 @@ cursos[3] = {
   nome: "Redes de Computadores",
   prof: "Reginaldo Hugo Szezupior dos Santos",
   link: "https://meet.google.com/ovx-bqmg-fmh",
-  date: createClock(13, 38)
+  date: createClock(19, 00)
 }
 
 cursos[4] = {
