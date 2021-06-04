@@ -86,7 +86,6 @@ function Countdown({ curso }) {
       if (time > 0) {
 
         setTime(!atrasado ? curso.date.toSeconds() - createClock.now() : time - 1);
-
       }
 
       else {
