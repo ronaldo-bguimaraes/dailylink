@@ -116,13 +116,37 @@ function Countdown({ curso }) {
   )
 }
 
+function NotCurso() {
+  return (
+    <Alert variant="danger" className="mt-2 mb-0 py-2">
+      <strong>Não há aula hoje!</strong>
+    </Alert>
+  )
+}
+
+function ShowCurso({ curso }) {
+  return (
+    <>
+
+    </>
+  )
+}
+
 function App() {
 
   const date = new Date();
 
   const today = date.getDay();
 
-  const curso = cursos[today];
+  const curso = (cursos[today] || {});
+
+  if (!curso.nome) {
+    curso.nome = "Não há aula hoje!";
+  }
+
+  if (!curso.prof) {
+    curso.prof = "Nenhum";
+  }
 
   return (
     <>
