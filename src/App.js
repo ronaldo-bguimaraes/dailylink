@@ -116,22 +116,6 @@ function Countdown({ curso }) {
   )
 }
 
-function NotCurso() {
-  return (
-    <Alert variant="danger" className="mt-2 mb-0 py-2">
-      <strong>Não há aula hoje!</strong>
-    </Alert>
-  )
-}
-
-function ShowCurso({ curso }) {
-  return (
-    <>
-
-    </>
-  )
-}
-
 function App() {
 
   const date = new Date();
