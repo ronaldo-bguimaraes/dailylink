@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useEffect, useState } from "react";
 
-import { Alert, Card, Container, Table } from 'react-bootstrap';
+import { Alert, Card, Container, Table } from "react-bootstrap";
 
 import createClock from "./components/Clock";
 
