@@ -10,3 +10,11 @@ code {
 a {
   text-decoration: none;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+.green {
+  background-color: #4caf50;
+}
